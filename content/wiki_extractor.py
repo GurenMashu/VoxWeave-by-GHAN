@@ -1,6 +1,7 @@
 import wikipedia
 
 class WikiExtractor():
+
     def __init__(self, topic):
         self.topic = topic
         wikipedia.set_lang("en")
@@ -21,9 +22,10 @@ class WikiExtractor():
     def get_content_from_page(self):
         """
         To extract overall information of the page.
-        Return a dictionary of structures information from the page
+        Return a dictionary of structured information from the page
         """
         try:
+
             try:
                 results = wikipedia.search(self.topic, result = 3)
                 print(results)
@@ -54,6 +56,7 @@ class WikiExtractor():
                     "summary":wikipedia.summary(option_taken, sentence=0),
                     "sections":sections
                 }
+            
         except wikipedia.exceptions.WikipediaException as e:
             print(f"[ERROR] Content extraction for '{self.topic}' failed: {e}")
             return None
